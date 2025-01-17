@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://r8s6hf8qvog"]
+
+[ext_resource type="Texture2D" uid="uid://bcjgwd75fgng0" path="res://Assets/Other/Sprites/Enemies/yellow_carrot.png" id="1_c4kh7"]
+[ext_resource type="Script" path="res://Assets/Scripts/strawberry_carrot.gd" id="2_v33l8"]
+[ext_resource type="Texture2D" uid="uid://cg38sxuiylupk" path="res://Assets/Other/Sprites/color_of_dirt.png" id="3_feea1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7jrw"]
+atlas = ExtResource("1_c4kh7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdi0k"]
+atlas = ExtResource("1_c4kh7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf2us"]
+atlas = ExtResource("1_c4kh7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pyae"]
+atlas = ExtResource("1_c4kh7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnhqc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7jrw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdi0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uf2us")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pyae")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u0xgy"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyh7m"]
+size = Vector2(14, 15.5)
+
+[node name="Carrot" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_pnhqc")
+autoplay = "default"
+frame_progress = 0.679623
+script = ExtResource("2_v33l8")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_u0xgy")
+position = Vector2(0, 6)
+rotation = -1.5708
+amount = 1
+lifetime = 0.2
+texture = ExtResource("3_feea1")
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+scale_amount_min = 0.05
+scale_amount_max = 0.05
+anim_offset_max = 0.5
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nyh7m")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 24)
+collision_mask = 2

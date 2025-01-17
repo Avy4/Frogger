@@ -1,0 +1,302 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctyfj4365ukab"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/goku.gd" id="1_4g75l"]
+[ext_resource type="Texture2D" uid="uid://dqkfte6omiryl" path="res://Assets/Other/Sprites/NPCS/goku/blast_2.png" id="1_723ax"]
+[ext_resource type="Texture2D" uid="uid://wm16q6717088" path="res://Assets/Other/Sprites/NPCS/goku/goku_1.png" id="1_ydxtl"]
+[ext_resource type="Texture2D" uid="uid://c60dmtxj22aj" path="res://Assets/Other/Sprites/NPCS/goku/blast_3.png" id="3_juhox"]
+[ext_resource type="Texture2D" uid="uid://cyrmxqhtyajgd" path="res://Assets/Other/Sprites/NPCS/goku/blast_4.png" id="4_2fkwk"]
+[ext_resource type="Texture2D" uid="uid://b05c5ir6xjl46" path="res://Assets/Other/Sprites/NPCS/goku/goku_2.png" id="5_jc3ug"]
+[ext_resource type="Texture2D" uid="uid://yi47gbpbgodv" path="res://Assets/Other/Sprites/NPCS/goku/goku_3.png" id="6_n52hv"]
+
+[sub_resource type="Gradient" id="Gradient_l38gt"]
+offsets = PackedFloat32Array(0, 0.435, 0.605, 0.845, 0.995, 1)
+colors = PackedColorArray(0.713726, 1, 0, 1, 0.301961, 0.886275, 0, 1, 0.415686, 0.388235, 0.984314, 1, 0.40465, 0.436563, 0.888799, 1, 0.392157, 0, 0.784314, 1, 0.301961, 0.886275, 0, 1)
+
+[sub_resource type="Animation" id="Animation_o5rwe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_ydxtl")]
+}
+
+[sub_resource type="Animation" id="Animation_qh8dd"]
+resource_name = "blast"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_ydxtl"), ExtResource("1_723ax"), ExtResource("3_juhox"), ExtResource("4_2fkwk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-5, 12), Vector2(0, 8)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CPUParticles2D:amount")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [250]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D:emission_sphere_radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [64.0, 4.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles2D:emission_shape")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CPUParticles2D:initial_velocity_min")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CPUParticles2D:initial_velocity_max")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CPUParticles2D:lifetime")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+
+[sub_resource type="Animation" id="Animation_fpwv0"]
+resource_name = "idle"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [500]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:lifetime")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:emission_sphere_radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [32.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CPUParticles2D:emission_shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CPUParticles2D:initial_velocity_min")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [500.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles2D:initial_velocity_max")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [500.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CPUParticles2D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5708]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CPUParticles2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 8)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CPUParticles2D:z_index")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_ydxtl"), ExtResource("5_jc3ug"), ExtResource("6_n52hv"), ExtResource("5_jc3ug"), ExtResource("1_ydxtl")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18s5a"]
+_data = {
+"RESET": SubResource("Animation_o5rwe"),
+"blast": SubResource("Animation_qh8dd"),
+"idle": SubResource("Animation_fpwv0")
+}
+
+[node name="Goku" type="Node2D"]
+z_index = 1
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_4g75l")
+
+[node name="GokuSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ydxtl")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="GokuSprite"]
+z_index = -1
+position = Vector2(0, 8)
+rotation = -1.5708
+amount = 500
+lifetime = 0.1
+speed_scale = 0.5
+emission_shape = 2
+emission_sphere_radius = 32.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 500.0
+color_ramp = SubResource("Gradient_l38gt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GokuSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_18s5a")
+}
+autoplay = "idle"
+speed_scale = 2.0
+
+[connection signal="animation_finished" from="GokuSprite/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

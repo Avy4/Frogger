@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://wsx7ykkv37e2"]
+
+[ext_resource type="Texture2D" uid="uid://but5iivm1juhi" path="res://Assets/Other/Sprites/Background/leaves.png" id="1_woakx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lgulu"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="LeavesParticles" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_lgulu")
+scale = Vector2(0.5, 0.5)
+emitting = false
+amount = 4
+lifetime = 0.3
+texture = ExtResource("1_woakx")
+emission_shape = 1
+emission_sphere_radius = 5.13
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 36.66
+initial_velocity_max = 36.66
+angular_velocity_min = -417.75
+angular_velocity_max = 174.19
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+anim_offset_max = 1.0

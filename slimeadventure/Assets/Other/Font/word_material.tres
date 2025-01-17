@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://7attvwpa3nmb"]
+
+[ext_resource type="Shader" path="res://Assets/Other/Font/font.gdshader" id="1_78dds"]
+[ext_resource type="Texture2D" uid="uid://delrqmmr364ix" path="res://Assets/Other/Font/gradient.png" id="2_awa0h"]
+
+[resource]
+shader = ExtResource("1_78dds")
+shader_parameter/gradient_mix_amount = 1.0
+shader_parameter/gradient = ExtResource("2_awa0h")

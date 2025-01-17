@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd4svxcxllrap"]
+
+[ext_resource type="Texture2D" uid="uid://7ctre2sq1sow" path="res://Assets/Other/Sprites/Slime_UI/slime_core.png" id="1_tmme6"]
+
+[node name="SlimeCore" type="TextureRect"]
+offset_right = 24.0
+offset_bottom = 23.0
+
+[node name="SlimeCore" type="Sprite2D" parent="."]
+position = Vector2(12, 11)
+texture = ExtResource("1_tmme6")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyd3c8quyl04e"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Path_Scripts/turtle_path_static.gd" id="1_dxwuu"]
+[ext_resource type="PackedScene" uid="uid://c63paog7tvecy" path="res://Assets/Scenes/Characters/turtle_static.tscn" id="2_y70b6"]
+
+[sub_resource type="Curve2D" id="Curve2D_7aamk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -368, 0)
+}
+point_count = 2
+
+[node name="TurtlePathStatic" type="Path2D"]
+curve = SubResource("Curve2D_7aamk")
+script = ExtResource("1_dxwuu")
+
+[node name="TurtlePathStaticPathFollow" type="PathFollow2D" parent="."]
+rotation = 3.14159
+
+[node name="Turtle" parent="TurtlePathStaticPathFollow" instance=ExtResource("2_y70b6")]
+position = Vector2(-24, 2.09815e-06)
+flip_h = true
+flip_v = true
+region_rect = Rect2(0, 0, 50, 16)
+
+[connection signal="body_entered" from="TurtlePathStaticPathFollow/Turtle/Area2D" to="." method="_on_area_2d_body_entered"]
+
+[editable path="TurtlePathStaticPathFollow/Turtle"]

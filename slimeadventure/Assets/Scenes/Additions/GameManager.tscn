@@ -1,0 +1,231 @@
+[gd_scene load_steps=13 format=3 uid="uid://brm5urhnhnsx0"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/game_manager.gd" id="1_epx3g"]
+[ext_resource type="Material" uid="uid://7attvwpa3nmb" path="res://Assets/Other/Font/word_material.tres" id="2_vfke8"]
+[ext_resource type="FontFile" uid="uid://bfa1jjn84io46" path="res://Assets/Other/Font/PixeloidSans-mLxMm.ttf" id="4_f3032"]
+[ext_resource type="Texture2D" uid="uid://brgqslbl5rs0s" path="res://Assets/Other/Sprites/Slime_UI/under.png" id="5_tr47k"]
+[ext_resource type="Texture2D" uid="uid://d34g0kwrsb63a" path="res://Assets/Other/Sprites/Slime_UI/over.png" id="6_ttv1g"]
+[ext_resource type="Texture2D" uid="uid://dbdbln7hu0dph" path="res://Assets/Other/Sprites/Slime_UI/progress.png" id="6_y1mso"]
+[ext_resource type="Script" path="res://Assets/Scripts/Path_Scripts/pause_menu.gd" id="7_lfoy5"]
+[ext_resource type="Texture2D" uid="uid://diq2bsw05uk8l" path="res://Assets/Other/Sprites/Background/slime_bg.png" id="8_14jfc"]
+[ext_resource type="Texture2D" uid="uid://ciaa5mdapktar" path="res://Assets/Other/Sprites/Background/Buttons/button_yes_base.png" id="8_mgvtw"]
+[ext_resource type="Texture2D" uid="uid://ct6kleyxoleid" path="res://Assets/Other/Sprites/Background/Buttons/button_yes_clicked.png" id="9_lqpht"]
+[ext_resource type="Texture2D" uid="uid://of8i30le6rdu" path="res://Assets/Other/Sprites/Background/Buttons/button_yes_hovered.png" id="10_arjwo"]
+[ext_resource type="Texture2D" uid="uid://dyht30x63fbar" path="res://Assets/Other/Sprites/Slime_UI/PRINCESS_SLIME.png" id="11_a4gj0"]
+
+[node name="GameManager" type="Node" groups=["GameManager"]]
+script = ExtResource("1_epx3g")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="HeartContainer" type="HBoxContainer" parent="GUI"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.976
+anchor_right = 1.0
+anchor_bottom = 0.976
+offset_left = -80.0
+offset_top = -15.936
+offset_right = -24.0
+offset_bottom = 0.0639648
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="GUI"]
+texture_filter = 1
+material = ExtResource("2_vfke8")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -24.0
+offset_right = 67.0
+offset_bottom = -14.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_f3032")
+theme_override_font_sizes/font_size = 8
+text = "000000"
+
+[node name="TimeRemaining" type="TextureProgressBar" parent="GUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 64.0
+grow_vertical = 0
+max_value = 30.0
+value = 30.0
+texture_under = ExtResource("5_tr47k")
+texture_over = ExtResource("6_ttv1g")
+texture_progress = ExtResource("6_y1mso")
+
+[node name="30SecTimer" type="Timer" parent="GUI/TimeRemaining"]
+autostart = true
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+visible = false
+script = ExtResource("7_lfoy5")
+
+[node name="BG" type="TextureRect" parent="PauseMenu"]
+self_modulate = Color(0.400698, 0.400698, 0.400698, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_14jfc")
+
+[node name="Labels" type="Control" parent="PauseMenu"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 168.0
+offset_top = 184.0
+offset_right = 168.0
+offset_bottom = 184.0
+
+[node name="GamePaused" type="Label" parent="PauseMenu/Labels"]
+texture_filter = 1
+material = ExtResource("2_vfke8")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 117.0
+offset_bottom = -88.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_f3032")
+theme_override_font_sizes/font_size = 32
+text = "Game Paused!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Label" parent="PauseMenu/Labels"]
+modulate = Color(0.564706, 1, 0.235294, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -32.0
+offset_right = -52.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_f3032")
+theme_override_font_sizes/font_size = 16
+text = "Resume"
+horizontal_alignment = 1
+
+[node name="No" type="Label" parent="PauseMenu/Labels"]
+modulate = Color(0.564706, 0.227451, 0.235294, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.0
+offset_top = -32.0
+offset_right = 115.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_f3032")
+theme_override_font_sizes/font_size = 16
+text = "Main Menu"
+horizontal_alignment = 1
+
+[node name="Princess" type="TextureRect" parent="PauseMenu/Labels"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 72.0
+offset_right = 104.0
+offset_bottom = 144.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("11_a4gj0")
+
+[node name="ChooseThisOne" type="Label" parent="PauseMenu/Labels"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = 63.0
+offset_right = 60.0
+offset_bottom = 103.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_f3032")
+theme_override_font_sizes/font_size = 8
+text = "I need this for my parlay. "
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Buttons" type="Control" parent="PauseMenu"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 168.0
+offset_right = 160.0
+offset_bottom = 168.0
+
+[node name="Resume" type="TextureButton" parent="PauseMenu/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -8.0
+offset_right = -39.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_mgvtw")
+texture_pressed = ExtResource("9_lqpht")
+texture_hover = ExtResource("10_arjwo")
+stretch_mode = 0
+
+[node name="ExitToMenuPause" type="TextureButton" parent="PauseMenu/Buttons"]
+self_modulate = Color(1, 0.31, 0.31, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -8.0
+offset_right = 121.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("8_mgvtw")
+texture_pressed = ExtResource("9_lqpht")
+texture_hover = ExtResource("10_arjwo")
+stretch_mode = 0
+
+[connection signal="timeout" from="GUI/TimeRemaining/30SecTimer" to="." method="_on_sec_timer_timeout"]
+[connection signal="pressed" from="PauseMenu/Buttons/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Buttons/ExitToMenuPause" to="PauseMenu" method="_on_exit_to_menu_pause_pressed"]

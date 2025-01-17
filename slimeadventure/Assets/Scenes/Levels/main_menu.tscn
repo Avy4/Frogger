@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://ct40terkqxtc0"]
+
+[ext_resource type="Texture2D" uid="uid://sxgtxqjoiji0" path="res://Assets/Other/Sprites/Background/pillars.png" id="1_6ysws"]
+[ext_resource type="Script" path="res://Assets/Scripts/main_menu.gd" id="1_esnfn"]
+[ext_resource type="AudioStream" uid="uid://dm4afiahfnowq" path="res://Assets/Other/Music/Town1 - Home Town.ogg" id="2_wmh2w"]
+[ext_resource type="Texture2D" uid="uid://bmegd7taffb4t" path="res://Assets/Other/Sprites/Background/Buttons/start_norm.png" id="3_5ox7i"]
+[ext_resource type="Texture2D" uid="uid://bggd0upcveoal" path="res://Assets/Other/Sprites/Background/Buttons/start_pressed.png" id="4_b0lws"]
+[ext_resource type="Texture2D" uid="uid://cekb5vgi24331" path="res://Assets/Other/Sprites/Background/Buttons/start_hovered.png" id="5_au3uf"]
+[ext_resource type="Texture2D" uid="uid://c76idig5u0lcp" path="res://Assets/Other/Sprites/Background/pillars_2.png" id="6_ex7eh"]
+[ext_resource type="Texture2D" uid="uid://bq3tekqw72imn" path="res://Assets/Other/Sprites/Background/pillars_3.png" id="7_lrwby"]
+[ext_resource type="Shader" path="res://Assets/Other/Font/font.gdshader" id="8_j1vxl"]
+[ext_resource type="Texture2D" uid="uid://delrqmmr364ix" path="res://Assets/Other/Font/gradient.png" id="9_wm5fg"]
+[ext_resource type="FontFile" uid="uid://bfa1jjn84io46" path="res://Assets/Other/Font/PixeloidSans-mLxMm.ttf" id="10_jhc4j"]
+
+[sub_resource type="Animation" id="Animation_0egs6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6ysws")]
+}
+
+[sub_resource type="Animation" id="Animation_6xbax"]
+resource_name = "background"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_6ysws"), ExtResource("6_ex7eh"), ExtResource("7_lrwby")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_la12l"]
+_data = {
+"RESET": SubResource("Animation_0egs6"),
+"background": SubResource("Animation_6xbax")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p8s4m"]
+shader = ExtResource("8_j1vxl")
+shader_parameter/gradient_mix_amount = 1.0
+shader_parameter/gradient = ExtResource("9_wm5fg")
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_esnfn")
+music_to_play = ExtResource("2_wmh2w")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 0.533333, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6ysws")
+
+[node name="StartButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = 56.0
+offset_right = 56.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_5ox7i")
+texture_pressed = ExtResource("4_b0lws")
+texture_hover = ExtResource("5_au3uf")
+stretch_mode = 0
+
+[node name="BackgroundAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_la12l")
+}
+autoplay = "background"
+speed_scale = 0.5
+
+[node name="Title" type="Label" parent="."]
+modulate = Color(0.478431, 1, 1, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_p8s4m")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -101.0
+offset_right = 146.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("10_jhc4j")
+theme_override_font_sizes/font_size = 16
+text = "Slime Adventure: 101 Years Quest"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

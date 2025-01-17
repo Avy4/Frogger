@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5ovxvs0ls2kf"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Path_Scripts/tree_path.gd" id="1_a8r0n"]
+[ext_resource type="PackedScene" uid="uid://doouokk6j33c7" path="res://Assets/Scenes/Characters/tree.tscn" id="2_ldudi"]
+[ext_resource type="PackedScene" uid="uid://wsx7ykkv37e2" path="res://Assets/Scenes/Additions/leaves_particles.tscn" id="3_weuei"]
+
+[sub_resource type="Curve2D" id="Curve2D_ork7v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 40, 296, 0, 0, 0, 0, 304, 296)
+}
+point_count = 2
+
+[node name="TreePath" type="Path2D"]
+z_as_relative = false
+curve = SubResource("Curve2D_ork7v")
+script = ExtResource("1_a8r0n")
+
+[node name="TreePathFollow" type="PathFollow2D" parent="."]
+position = Vector2(40, 296)
+
+[node name="Tree" parent="TreePathFollow" instance=ExtResource("2_ldudi")]
+
+[node name="LeavesEnd" parent="TreePathFollow" instance=ExtResource("3_weuei")]
+texture_filter = 1
+position = Vector2(272, 0)
+one_shot = true
+
+[node name="LeavesStart" parent="TreePathFollow" instance=ExtResource("3_weuei")]
+position = Vector2(-8, 0)
+one_shot = true

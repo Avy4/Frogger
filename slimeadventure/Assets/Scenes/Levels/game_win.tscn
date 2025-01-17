@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://bw6w71mpns7vo"]
+
+[ext_resource type="Texture2D" uid="uid://cyex67qm5j2hp" path="res://Assets/Other/Sprites/Background/winner_screen_bg.png" id="1_8pkrg"]
+[ext_resource type="Script" path="res://Assets/Scripts/game_win.gd" id="1_fi8aj"]
+[ext_resource type="FontFile" uid="uid://bfa1jjn84io46" path="res://Assets/Other/Font/PixeloidSans-mLxMm.ttf" id="2_myqwm"]
+[ext_resource type="Material" uid="uid://7attvwpa3nmb" path="res://Assets/Other/Font/word_material.tres" id="3_qkyuw"]
+[ext_resource type="Texture2D" uid="uid://bcvk0r0roadlb" path="res://Assets/Other/Sprites/Background/Buttons/start_norm_cake.png" id="4_8i4b3"]
+[ext_resource type="Texture2D" uid="uid://dguvvej0xau0t" path="res://Assets/Other/Sprites/Background/Buttons/start_hovered_cake.png" id="5_kgy3y"]
+[ext_resource type="Texture2D" uid="uid://5ibdw3a71m5p" path="res://Assets/Other/Sprites/Background/Buttons/start_pressed_cake.png" id="6_fbh58"]
+
+[node name="game_win" type="CanvasLayer"]
+script = ExtResource("1_fi8aj")
+
+[node name="BG" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8pkrg")
+
+[node name="ChooseThisOne" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = -121.0
+offset_right = 283.0
+offset_bottom = -81.0
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_myqwm")
+theme_override_font_sizes/font_size = 8
+text = "Thanks Cuh!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestFailed" type="Label" parent="."]
+texture_filter = 1
+material = ExtResource("3_qkyuw")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.5
+offset_top = 109.0
+offset_right = 122.5
+offset_bottom = 149.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_myqwm")
+theme_override_font_sizes/font_size = 32
+text = "You Did it!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="."]
+texture_filter = 1
+material = ExtResource("3_qkyuw")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -29.0
+offset_right = 32.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_myqwm")
+theme_override_font_sizes/font_size = 16
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CakeButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 6.0
+offset_right = 40.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_8i4b3")
+texture_pressed = ExtResource("6_fbh58")
+texture_hover = ExtResource("5_kgy3y")
+stretch_mode = 0
+
+[connection signal="pressed" from="CakeButton" to="." method="_on_cake_button_pressed"]

@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://bape3kbmfg3w5"]
+
+[ext_resource type="Texture2D" uid="uid://cl0fprcvuqy5i" path="res://Assets/Other/Sprites/duofrog.png" id="1_a8cd7"]
+
+[sub_resource type="Animation" id="Animation_0slv2"]
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 50, 16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4deaw"]
+resource_name = "turtle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 50, 16), Rect2(50, 0, 50, 16), Rect2(100, 0, 50, 16), Rect2(50, -13, 50, 13)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xq87k"]
+_data = {
+"RESET": SubResource("Animation_0slv2"),
+"turtle": SubResource("Animation_4deaw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkq54"]
+size = Vector2(40, 8)
+
+[node name="TurtleMOVEMENT" type="Sprite2D"]
+position = Vector2(-24, 2.09815e-06)
+texture = ExtResource("1_a8cd7")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 50, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xq87k")
+}
+autoplay = "turtle"
+speed_scale = 0.5
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(8, -6.99361e-07)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, 6.99369e-07)
+shape = SubResource("RectangleShape2D_mkq54")
+disabled = true

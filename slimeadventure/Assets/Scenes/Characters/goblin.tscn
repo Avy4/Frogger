@@ -1,0 +1,80 @@
+[gd_scene load_steps=11 format=3 uid="uid://bfiron0ma7odq"]
+
+[ext_resource type="Texture2D" uid="uid://bkvy5xhfrpv2m" path="res://Assets/Other/Sprites/Enemies/goblin run.png" id="1_krb17"]
+[ext_resource type="PackedScene" uid="uid://30uh6q165vrx" path="res://Assets/Scenes/Additions/torch.tscn" id="2_hl6ec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x34d"]
+atlas = ExtResource("1_krb17")
+region = Rect2(0, 0, 672, 672)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mdpl"]
+atlas = ExtResource("1_krb17")
+region = Rect2(672, 0, 672, 672)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6fbb"]
+atlas = ExtResource("1_krb17")
+region = Rect2(1344, 0, 672, 672)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmq41"]
+atlas = ExtResource("1_krb17")
+region = Rect2(2016, 0, 672, 672)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y2w3"]
+atlas = ExtResource("1_krb17")
+region = Rect2(2688, 0, 672, 672)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6udu"]
+atlas = ExtResource("1_krb17")
+region = Rect2(3360, 0, 672, 672)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjrig"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x34d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mdpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6fbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmq41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y2w3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6udu")
+}],
+"loop": true,
+"name": &"running",
+"speed": 11.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgmly"]
+size = Vector2(208, 208)
+
+[node name="Goblin" type="AnimatedSprite2D"]
+position = Vector2(0, -10)
+scale = Vector2(0.075, 0.075)
+sprite_frames = SubResource("SpriteFrames_yjrig")
+animation = &"running"
+autoplay = "running"
+frame_progress = 0.870477
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 13.3333)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 120)
+shape = SubResource("RectangleShape2D_dgmly")
+
+[node name="Torch" parent="." instance=ExtResource("2_hl6ec")]
+position = Vector2(53.3333, 133.333)
+scale = Vector2(15, 15)
+energy = 2.0
+min = 0.2
+max = 0.25

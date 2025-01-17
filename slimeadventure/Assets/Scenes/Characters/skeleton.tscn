@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://b0gcxnln2g2nb"]
+
+[ext_resource type="Texture2D" uid="uid://cf1bihmkhbpwb" path="res://Assets/Other/Sprites/Enemies/skeleton spritesheet calciumtrice.png" id="1_vcjdh"]
+[ext_resource type="Script" path="res://Assets/Scripts/skeleton.gd" id="2_xtktv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvnlp"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q4to"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wwxi"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mog6l"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4o06"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4ec"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnigd"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vgux"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w55s7"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(256, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oexx2"]
+atlas = ExtResource("1_vcjdh")
+region = Rect2(288, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prjav"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvnlp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q4to")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wwxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mog6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4o06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnigd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vgux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w55s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oexx2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 11.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hsdk"]
+size = Vector2(13.3333, 20)
+
+[node name="Skeleton" type="AnimatedSprite2D"]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_prjav")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.18229
+script = ExtResource("2_xtktv")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6.66667)
+shape = SubResource("RectangleShape2D_4hsdk")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(9.33333, 0)
+collision_mask = 2

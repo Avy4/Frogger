@@ -1,0 +1,179 @@
+[gd_scene load_steps=11 format=3 uid="uid://ypdgjjngn2br"]
+
+[ext_resource type="Texture2D" uid="uid://diq2bsw05uk8l" path="res://Assets/Other/Sprites/Background/slime_bg.png" id="1_ilxe1"]
+[ext_resource type="Script" path="res://Assets/Scripts/game_over.gd" id="1_u8iy8"]
+[ext_resource type="FontFile" uid="uid://bfa1jjn84io46" path="res://Assets/Other/Font/PixeloidSans-mLxMm.ttf" id="2_88wjp"]
+[ext_resource type="Texture2D" uid="uid://ciaa5mdapktar" path="res://Assets/Other/Sprites/Background/Buttons/button_yes_base.png" id="3_d2ohv"]
+[ext_resource type="Texture2D" uid="uid://ct6kleyxoleid" path="res://Assets/Other/Sprites/Background/Buttons/button_yes_clicked.png" id="4_m732e"]
+[ext_resource type="Texture2D" uid="uid://of8i30le6rdu" path="res://Assets/Other/Sprites/Background/Buttons/button_yes_hovered.png" id="5_ca4d7"]
+[ext_resource type="Material" uid="uid://7attvwpa3nmb" path="res://Assets/Other/Font/word_material.tres" id="6_mmupt"]
+[ext_resource type="Texture2D" uid="uid://d1k1by78jdidl" path="res://Assets/Other/Sprites/Slime_UI/wise_slime.png" id="7_fjvvr"]
+[ext_resource type="Texture2D" uid="uid://bb66nhklnb6pv" path="res://Assets/Other/Sprites/Background/Buttons/arrow2.png" id="8_4hr0o"]
+[ext_resource type="Texture2D" uid="uid://bsn7b5umu8mdm" path="res://Assets/Other/Sprites/Background/Buttons/arrow1.png" id="9_jb78d"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_u8iy8")
+
+[node name="BackgroundPicture" type="TextureRect" parent="."]
+self_modulate = Color(0.4, 0.4, 0.4, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ilxe1")
+
+[node name="Buttons" type="Node" parent="."]
+
+[node name="PlayAgain" type="TextureButton" parent="Buttons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -24.0
+offset_right = -31.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_d2ohv")
+texture_pressed = ExtResource("4_m732e")
+texture_hover = ExtResource("5_ca4d7")
+stretch_mode = 0
+
+[node name="ExitToMenu" type="TextureButton" parent="Buttons"]
+self_modulate = Color(1, 0.31, 0.31, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -24.0
+offset_right = 113.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_d2ohv")
+texture_pressed = ExtResource("4_m732e")
+texture_hover = ExtResource("5_ca4d7")
+stretch_mode = 0
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="QuestFailed" type="Label" parent="Labels"]
+texture_filter = 1
+material = ExtResource("6_mmupt")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.5
+offset_top = 49.0
+offset_right = 122.5
+offset_bottom = 89.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_88wjp")
+theme_override_font_sizes/font_size = 32
+text = "QUEST FAILED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChooseThisOne" type="Label" parent="Labels"]
+texture_filter = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -104.0
+offset_right = 221.0
+offset_bottom = -64.0
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_88wjp")
+theme_override_font_sizes/font_size = 8
+text = "If you can't do it who can? "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TryAgain" type="Label" parent="Labels"]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 80.0
+offset_right = 125.0
+offset_bottom = 120.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_88wjp")
+theme_override_font_sizes/font_size = 16
+text = "Try Again?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Label" parent="Labels"]
+modulate = Color(0.564706, 1, 0.235294, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -32.0
+offset_right = -51.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_88wjp")
+theme_override_font_sizes/font_size = 16
+text = "YES!"
+horizontal_alignment = 1
+
+[node name="No" type="Label" parent="Labels"]
+modulate = Color(0.564706, 0.227451, 0.235294, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = -32.0
+offset_right = 93.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_88wjp")
+theme_override_font_sizes/font_size = 16
+text = "NO!"
+horizontal_alignment = 1
+
+[node name="WiseSlime" type="TextureRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -88.0
+offset_right = 128.0
+offset_bottom = -24.0
+grow_vertical = 0
+texture = ExtResource("7_fjvvr")
+
+[node name="Arrow1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(152, 240)
+rotation = 0.193732
+scale = Vector2(5, 5)
+texture = ExtResource("8_4hr0o")
+
+[node name="Arrow2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(41.476, 233.476)
+rotation = -0.279253
+scale = Vector2(5, 5)
+texture = ExtResource("9_jb78d")
+
+[connection signal="pressed" from="Buttons/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="Buttons/ExitToMenu" to="." method="_on_exit_to_menu_pressed"]

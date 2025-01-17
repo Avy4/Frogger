@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnq03vt5fyseb"]
+
+[ext_resource type="AudioStream" uid="uid://dm4afiahfnowq" path="res://Assets/Other/Music/Town1 - Home Town.ogg" id="1_6rqei"]
+
+[node name="BGM" type="AudioStreamPlayer2D"]
+process_mode = 3
+stream = ExtResource("1_6rqei")
+autoplay = true
+bus = &"BGM"

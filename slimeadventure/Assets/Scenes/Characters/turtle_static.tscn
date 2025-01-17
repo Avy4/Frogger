@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c63paog7tvecy"]
+
+[ext_resource type="Texture2D" uid="uid://cl0fprcvuqy5i" path="res://Assets/Other/Sprites/Enemies/duofrog.png" id="1_w3xn1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkq54"]
+size = Vector2(32, 8)
+
+[node name="Turtle" type="Sprite2D"]
+texture = ExtResource("1_w3xn1")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mkq54")

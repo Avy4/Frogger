@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0vk0wguxntii"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Path_Scripts/goblin_path.gd" id="1_hrrhj"]
+[ext_resource type="PackedScene" uid="uid://bfiron0ma7odq" path="res://Assets/Scenes/Characters/goblin.tscn" id="2_t2qs8"]
+
+[sub_resource type="Curve2D" id="Curve2D_6jqvn"]
+_data = {
+"points": PackedVector2Array(-17.4617, 0, 17.4617, 0, -64, 280, 0, 0, 0, 0, 384, 280)
+}
+point_count = 2
+
+[node name="GoblinPath" type="Path2D"]
+curve = SubResource("Curve2D_6jqvn")
+script = ExtResource("1_hrrhj")
+
+[node name="GoblinPathFollow" type="PathFollow2D" parent="."]
+position = Vector2(-64, 280)
+
+[node name="Goblin" parent="GoblinPathFollow" instance=ExtResource("2_t2qs8")]

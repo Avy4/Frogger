@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmfllce744d6m"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Path_Scripts/minecart_path.gd" id="1_h22t7"]
+[ext_resource type="PackedScene" uid="uid://eqe5hkfyv1aw" path="res://Assets/Scenes/Characters/minecart.tscn" id="2_7yrnf"]
+
+[sub_resource type="Curve2D" id="Curve2D_36upk"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0.237228, -0.540619, 0, 0, 0, 0, 266.237, 0.459381)
+}
+point_count = 2
+
+[node name="MinecartPath" type="Path2D"]
+position = Vector2(29.7628, 271.541)
+curve = SubResource("Curve2D_36upk")
+script = ExtResource("1_h22t7")
+
+[node name="MinecartPathFollow" type="PathFollow2D" parent="."]
+position = Vector2(0.237228, -0.540619)
+rotation = 0.00375938
+
+[node name="Minecart" parent="MinecartPathFollow" instance=ExtResource("2_7yrnf")]
+position = Vector2(6.23723, -2.54062)

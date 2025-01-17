@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnpdp3xpov3ey"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Path_Scripts/path_rock.gd" id="1_k11vf"]
+[ext_resource type="Texture2D" uid="uid://usp5x3ow0ely" path="res://Assets/Other/Sprites/Background/stone.png" id="2_fwic4"]
+
+[sub_resource type="Curve2D" id="Curve2D_4kjoo"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -6.84476, 0.0572815, 0, 0, 0, 0, -278.845, 0.0572815)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm3b"]
+size = Vector2(8, 7.99999)
+
+[node name="PathRock" type="Path2D"]
+position = Vector2(302.845, 119.943)
+curve = SubResource("Curve2D_4kjoo")
+script = ExtResource("1_k11vf")
+speed = -96
+
+[node name="PathFollowRock" type="PathFollow2D" parent="."]
+position = Vector2(-6.84476, 0.0572815)
+rotation = 3.14159
+
+[node name="Rock" type="Sprite2D" parent="PathFollowRock"]
+texture_filter = 1
+position = Vector2(0.0579271, 0.0321918)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_fwic4")
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="PathFollowRock/Rock"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollowRock/Rock/Area2D"]
+position = Vector2(-0.0772362, -0.042923)
+shape = SubResource("RectangleShape2D_0xm3b")
+
+[connection signal="body_entered" from="PathFollowRock/Rock/Area2D" to="." method="_on_area_2d_body_entered"]

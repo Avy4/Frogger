@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://30uh6q165vrx"]
+
+[ext_resource type="Texture2D" uid="uid://cpcoy68g4f4xp" path="res://Assets/Other/Tiles/Lights/light.jpg" id="1_267q2"]
+[ext_resource type="Script" path="res://Assets/Scripts/torch.gd" id="2_qu4p7"]
+
+[node name="Torch" type="PointLight2D"]
+z_index = 1
+color = Color(0.92549, 0.329412, 0.270588, 1)
+texture = ExtResource("1_267q2")
+texture_scale = 0.1
+script = ExtResource("2_qu4p7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

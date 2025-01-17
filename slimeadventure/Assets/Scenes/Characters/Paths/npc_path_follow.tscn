@@ -1,0 +1,162 @@
+[gd_scene load_steps=29 format=3 uid="uid://j45yaq6xp487"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Path_Scripts/npc_path_follow.gd" id="1_umfia"]
+[ext_resource type="Texture2D" uid="uid://dolkf5kbrysec" path="res://Assets/Other/Sprites/NPCS/Blacksmith/Blacksmith_Walk_1.png" id="2_obnqv"]
+[ext_resource type="Texture2D" uid="uid://cm6c6gjqnsj31" path="res://Assets/Other/Sprites/NPCS/Blacksmith/Blacksmith_Walk_2.png" id="3_eip0w"]
+[ext_resource type="Texture2D" uid="uid://ycsxd4jh0u6d" path="res://Assets/Other/Sprites/NPCS/Blacksmith/Blacksmith_Walk_3.png" id="4_gjd6d"]
+[ext_resource type="Texture2D" uid="uid://c02wt2wgv4xu8" path="res://Assets/Other/Sprites/NPCS/Blacksmith/Blacksmith_Walk_4.png" id="5_ny62s"]
+[ext_resource type="Texture2D" uid="uid://cgct0lppgkexp" path="res://Assets/Other/Sprites/NPCS/Butcher/Butcher_Walk_1.png" id="6_g1f21"]
+[ext_resource type="Texture2D" uid="uid://c73lqr3xg8gl8" path="res://Assets/Other/Sprites/NPCS/Butcher/Butcher_Walk_2.png" id="7_1eir1"]
+[ext_resource type="Texture2D" uid="uid://dbv4vry1d3hyq" path="res://Assets/Other/Sprites/NPCS/Butcher/Butcher_Walk_3.png" id="8_jx6v6"]
+[ext_resource type="Texture2D" uid="uid://byvj55wbh6qx5" path="res://Assets/Other/Sprites/NPCS/Butcher/Butcher_Walk_4.png" id="9_hm76g"]
+[ext_resource type="Texture2D" uid="uid://dgpj0vbwhep1t" path="res://Assets/Other/Sprites/NPCS/Magic Shopkeeper/MagicShopKeeper_Idle + Walk_1.png" id="10_5wbir"]
+[ext_resource type="Texture2D" uid="uid://bx0n3rv04icv4" path="res://Assets/Other/Sprites/NPCS/Magic Shopkeeper/MagicShopKeeper_Idle + Walk_2.png" id="11_da31i"]
+[ext_resource type="Texture2D" uid="uid://k2gydmh8hdse" path="res://Assets/Other/Sprites/NPCS/Magic Shopkeeper/MagicShopKeeper_Idle + Walk_3.png" id="12_xbbmy"]
+[ext_resource type="Texture2D" uid="uid://chn1yxtrq51hj" path="res://Assets/Other/Sprites/NPCS/Magic Shopkeeper/MagicShopKeeper_Idle + Walk_4.png" id="13_nb3i8"]
+[ext_resource type="Texture2D" uid="uid://c2xeqi7oce6mt" path="res://Assets/Other/Sprites/NPCS/Merchant/Merchant_Walk_1.png" id="14_5u1td"]
+[ext_resource type="Texture2D" uid="uid://clhbknbc6o2qy" path="res://Assets/Other/Sprites/NPCS/Merchant/Merchant_Walk_2.png" id="15_2wy8h"]
+[ext_resource type="Texture2D" uid="uid://3uwiy2qyqpdw" path="res://Assets/Other/Sprites/NPCS/Merchant/Merchant_Walk_3.png" id="16_mar1u"]
+[ext_resource type="Texture2D" uid="uid://cluk4neejxkox" path="res://Assets/Other/Sprites/NPCS/Merchant/Merchant_Walk_4.png" id="17_jfdwg"]
+[ext_resource type="Texture2D" uid="uid://cswprl1g8h6nt" path="res://Assets/Other/Sprites/NPCS/Townsfolk - Female/Townsfolk_F_Walk_1.png" id="18_7dahk"]
+[ext_resource type="Texture2D" uid="uid://dr8eie3gjl8a3" path="res://Assets/Other/Sprites/NPCS/Townsfolk - Female/Townsfolk_F_Walk_3.png" id="19_h6tvt"]
+[ext_resource type="Texture2D" uid="uid://wk6vj556al0o" path="res://Assets/Other/Sprites/NPCS/Townsfolk - Female/Townsfolk_F_Walk_4.png" id="20_d3psa"]
+[ext_resource type="Texture2D" uid="uid://ca41lrp03c7qd" path="res://Assets/Other/Sprites/NPCS/Townsfolk - Female/Townsfolk_F_Walk_2.png" id="21_lrwj1"]
+[ext_resource type="Texture2D" uid="uid://wcth6nkwoniu" path="res://Assets/Other/Sprites/NPCS/Townsfolk - Male/Townsfolk_M_Walk_1.png" id="22_oem0f"]
+[ext_resource type="Texture2D" uid="uid://barkf3kmbrns8" path="res://Assets/Other/Sprites/NPCS/Townsfolk - Male/Townsfolk_M_Walk_2.png" id="23_wa7mg"]
+[ext_resource type="Texture2D" uid="uid://dlx2q5ikcf2a5" path="res://Assets/Other/Sprites/NPCS/Townsfolk - Male/Townsfolk_M_Walk_3.png" id="24_fa31g"]
+[ext_resource type="Texture2D" uid="uid://b80qysltuwtm5" path="res://Assets/Other/Sprites/NPCS/Townsfolk - Male/Townsfolk_M_Walk_4.png" id="25_47reu"]
+
+[sub_resource type="Curve2D" id="Curve2D_8k5yu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 192, 0)
+}
+point_count = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t01pa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_obnqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eip0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gjd6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ny62s")
+}],
+"loop": true,
+"name": &"0",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_g1f21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1eir1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jx6v6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hm76g")
+}],
+"loop": true,
+"name": &"1",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_5wbir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_da31i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xbbmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nb3i8")
+}],
+"loop": true,
+"name": &"2",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_5u1td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2wy8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mar1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jfdwg")
+}],
+"loop": true,
+"name": &"3",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_7dahk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_h6tvt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_d3psa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lrwj1")
+}],
+"loop": true,
+"name": &"4",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_oem0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_wa7mg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_fa31g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_47reu")
+}],
+"loop": true,
+"name": &"5",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fahl"]
+size = Vector2(12, 12)
+
+[node name="NPCPathFollow" type="Path2D"]
+curve = SubResource("Curve2D_8k5yu")
+script = ExtResource("1_umfia")
+
+[node name="NPCPathFollow" type="PathFollow2D" parent="."]
+
+[node name="NPC" type="AnimatedSprite2D" parent="NPCPathFollow"]
+position = Vector2(0, -8)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_t01pa")
+animation = &"0"
+frame_progress = 0.568235
+
+[node name="Area2D" type="Area2D" parent="NPCPathFollow/NPC"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCPathFollow/NPC/Area2D"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_8fahl")

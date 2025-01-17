@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://beuhtep4j6yud"
+path="res://.godot/imported/Town4 - Bazaar.ogg-fc61c1ba68b4a45847f67d5cf3430050.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Other/Music/Town4 - Bazaar.ogg"
+dest_files=["res://.godot/imported/Town4 - Bazaar.ogg-fc61c1ba68b4a45847f67d5cf3430050.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
