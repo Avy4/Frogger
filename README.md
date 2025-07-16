@@ -1,4 +1,4 @@
-# SlimeAdventure
+# Frogger
 Frogger Game
 
 Itch.io Link: https://avy4.itch.io/slime-adventure
